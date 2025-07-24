@@ -10,6 +10,7 @@ import com.newsengine.contextualnews.model.NewsArticle;
 import com.newsengine.contextualnews.repository.NewsArticleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -22,9 +23,10 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class DataLoader {
-
-    private final NewsArticleRepository newsArticleRepository;
-    private final ObjectMapper objectMapper = new ObjectMapper()
+    @Autowired
+    private NewsArticleRepository newsArticleRepository;
+    @Autowired
+    private ObjectMapper objectMapper = new ObjectMapper()
             .registerModule(new JavaTimeModule())
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
             .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);

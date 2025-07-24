@@ -4,6 +4,7 @@ import com.newsengine.contextualnews.dto.NearbyResponseDTO;
 import com.newsengine.contextualnews.model.NewsArticle;
 import com.newsengine.contextualnews.repository.NewsArticleRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class NewsService {
-    private  final NewsArticleRepository newsArticleRepository;
+    @Autowired
+    private NewsArticleRepository newsArticleRepository;
 
     public List<NearbyResponseDTO> getNearbyArticle(double lat, double lon, double radius){
         List<NewsArticle> nearby = newsArticleRepository.findNearby(lat,lon,radius);

@@ -18,10 +18,10 @@ public interface NewsArticleRepository extends JpaRepository<NewsArticle, String
     // Find by relevance score greater than a threshold
     List<NewsArticle> findByRelevanceScoreGreaterThanOrderByRelevanceScoreDesc(Double relevanceScore);
 
-    // Search by title or description containing keyword (case-insensitive)
-    List<NewsArticle> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(
-            String titleKeyword, String descriptionKeyword
-    );
+//    // Search by title or description containing keyword (case-insensitive)
+//    List<NewsArticle> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(
+//            String titleKeyword, String descriptionKeyword
+//    );
 
     @Query("""
   SELECT n FROM NewsArticle n

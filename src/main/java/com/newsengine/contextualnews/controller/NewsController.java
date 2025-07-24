@@ -4,6 +4,7 @@ package com.newsengine.contextualnews.controller;
 import com.newsengine.contextualnews.dto.*;
 import com.newsengine.contextualnews.service.NewsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,8 @@ import java.util.List;
 @RequestMapping("api/v1/news")
 @RequiredArgsConstructor
 public class NewsController {
-    private  final NewsService newsService;
+    @Autowired
+    private NewsService newsService;
 
 
     @GetMapping("/nearby")
